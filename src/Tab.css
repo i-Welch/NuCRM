@@ -3,17 +3,18 @@
 :local(.TabACT) {
     display: flex;
     border: none;
-    height: 35px;
     flex: 1;
-    background-color: #f4f6f8;
-    margin-left: 5px;
-    margin-right: 6px;
-    border-radius: 5px 5px 0px 0px;
+    color: #57C185;
+    background-color: #E7ECEA;
+    flex-direction: column;
+    
+    padding-right: 5px;
     justify-content: center;
-    flex-grow: 0;
     flex-basis: 150px;
+    border-top: solid 4px #57C185;
+    align-items: center;
 
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: 'Roboto';
     font-weight: 400;
 }
@@ -21,21 +22,19 @@
 :local(.TabIN) {
     display: flex;
     border: none;
-    height: 35px;
     flex: 1;
-    background-color: rgb(127, 127, 143);
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 5px 5px 0px 0px;
+    color: #576574;
+    background-color: #DDE2E0;
+    padding-right: 5px;
     justify-content: center;
     font-family: 'Roboto';
-    flex-grow: 0;
     flex-basis: 150px;
+    flex-direction: column;
+    align-items: center;
 
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 400;
 }
 
 :local(.TabIN:hover){
-    background-color: rgb(140, 140, 160);
 }

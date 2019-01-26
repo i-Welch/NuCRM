@@ -5,11 +5,22 @@ import TabPage from './TabPage';
 
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        activeTab: 1,
+    };
+}
+
   render() {
     return (
       <div className="App">
-        <TabHeader></TabHeader>
-        <TabPage></TabPage>
+        <TabHeader 
+        activeTab={this.state.activeTab}
+        changeTab={(x)=>this.setState({activeTab:x})}
+        />
+        <TabPage activeTab={this.state.activeTab}/>
       </div>
     );
   }

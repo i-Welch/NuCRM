@@ -1,18 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 .TabHeader{
-    height: 50px;
-    background-color: #1c2260;
+    height: 100px;
+    background-color: #DDE2E0;
     display: flex;
     flex: 1;
     flex-direction: 'row';
-    align-items: flex-end;
+    align-items: stretch;
     font-weight: 400;
     font-family: 'Roboto';
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .tabContainer{
     display: flex;
     justify-content: flex-start;
+    padding-left: 10px;
 }
