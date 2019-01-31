@@ -1,12 +1,14 @@
 import React from 'react';
 import "./TabPage.css";
+import DashTab from './Dashtab'
+import InventoryTab from './InventoryTab';
 
 const TabPage = props => {
   switch(props.activeTab){
     case 1: 
-      return(<p>1</p>);
+      return(<DashTab/>);
     case 2:
-      return(<p>2</p>);
+      return(<InventoryTab/>);
     case 3:
       return(<p>3</p>);
     case 4:

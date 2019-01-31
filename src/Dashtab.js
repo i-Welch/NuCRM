@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
+import './dashtab.css';
 
-class tabPage extends Component{
+
+class DashTab extends Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+        };
     }
 
     render(){
         return(
-            <div>
-                
-            </div>
+            <div>1</div>
         );
     }
 }
+
+export default DashTab;

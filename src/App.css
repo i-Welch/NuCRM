@@ -4,6 +4,8 @@
   background-color: #E7ECEA;
   flex-direction: row;
   font-family: 'Roboto';
+  width: 100%;
+  height: 100%;
 }
 
 *:focus{

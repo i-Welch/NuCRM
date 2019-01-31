@@ -3,7 +3,6 @@ import './App.css';
 import TabHeader from './TabHeader.js';
 import TabPage from './TabPage';
 
-
 class App extends Component {
 
   constructor(props){

@@ -1,0 +1,10 @@
+.graphs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.graph{
+    
+    display: flex;
+    flex: 1;
+}
