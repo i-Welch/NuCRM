@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TabPage.css";
+import "../css/TabPage.css";
 import DashTab from './Dashtab'
 import InventoryTab from './InventoryTab';
 

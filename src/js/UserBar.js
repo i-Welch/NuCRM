@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./UserBar.css";
+import "../css/UserBar.css";
 import logo from "./User.png";
 
 class UserBar extends Component {

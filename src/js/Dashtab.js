@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './dashtab.css';
+import '../css/dashtab.css';
 
 
 class DashTab extends Component{

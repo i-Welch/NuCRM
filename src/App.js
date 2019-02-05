@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import TabHeader from './TabHeader.js';
-import TabPage from './TabPage';
+import './css/App.css';
+import TabHeader from './js/TabHeader.js';
+import TabPage from './js/TabPage';
 
 class App extends Component {
 

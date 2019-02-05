@@ -1,8 +1,8 @@
 import React from 'react';
-import "./TabHeader.css";
+import "../css/TabHeader.css";
 import "./Tab";
 import Tab from './Tab';
-import styles from "./Tab.css";
+import styles from "../css/Tab.css";
 
 const Dashboard = props => {
   return(<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
