@@ -1,8 +1,10 @@
 import React from 'react';
 import {PieChart,Pie,Cell,Tooltip} from 'recharts';
 import '../../css/GraphCard.css'
+import { Paper } from '@material-ui/core';
 
 const PieGraphCard = (props) => (
+    <Paper className ='pap'>
     <div className="graphcard">
         <div>
             <PieChart width={280} height={280}>
@@ -49,6 +51,7 @@ const PieGraphCard = (props) => (
         }
        </ul>
     </div>
+    </Paper>
 );
 
 export default PieGraphCard;

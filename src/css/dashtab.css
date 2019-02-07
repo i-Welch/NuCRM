@@ -8,3 +8,16 @@
     display: flex;
     flex: 1;
 }
+.invTab{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.Activity{
+    display: flex;
+    height: 500px;
+}
+.Leads{
+    display: flex;
+    height: 500px;
+}

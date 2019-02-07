@@ -5,7 +5,7 @@
     border: none;
     flex: 1;
     color: #57C185;
-    background-color: #E7ECEA;
+    background-color: #fafafa;
     flex-direction: column;
     
     padding-right: 5px;
@@ -24,7 +24,7 @@
     border: none;
     flex: 1;
     color: #576574;
-    background-color: #DDE2E0;
+    background-color: rgb(230, 230, 230);
     padding-right: 5px;
     justify-content: center;
     font-family: 'Roboto';

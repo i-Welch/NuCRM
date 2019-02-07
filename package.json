@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "chart.js": "^2.7.3",
     "d3": "^5.7.0",
     "d3-array": "2.0.3",
