@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+
+:local(.TabACT) {
+    display: flex;
+    border: none;
+    flex: 1;
+    color: #57C185;
+    background-color: #fafafa;
+    flex-direction: column;
+    
+    padding-right: 5px;
+    justify-content: center;
+    flex-basis: 150px;
+    border-top: solid 4px #57C185;
+    align-items: center;
+
+    font-size: 1.2em;
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
+:local(.TabIN) {
+    display: flex;
+    border: none;
+    flex: 1;
+    color: #576574;
+    background-color: rgb(230, 230, 230);
+    padding-right: 5px;
+    justify-content: center;
+    font-family: 'Roboto';
+    flex-basis: 150px;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+:local(.TabIN:hover){
+}
