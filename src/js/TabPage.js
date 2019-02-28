@@ -1,23 +1,25 @@
-import React from 'react';
+import React from "react";
 import "../css/TabPage.css";
-import DashTab from './Dashtab'
-import InventoryTab from './InventoryTab';
+import DashTab from "./Dashtab";
+import InventoryTab from "./InventoryTab";
+import LeadsTab from "./LeadsTab";
+import CustomerTab from "./GraphCards/CustomerTab";
 
 const TabPage = props => {
-  switch(props.activeTab){
-    case 1: 
-      return(<DashTab/>);
+  switch (props.activeTab) {
+    case 1:
+      return <DashTab />;
     case 2:
-      return(<InventoryTab/>);
+      return <InventoryTab />;
     case 3:
-      return(<p>3</p>);
+      return <LeadsTab />;
     case 4:
-      return(<p>4</p>);
+      return <CustomerTab />;
     case 5:
-      return(<p>5</p>);
+      return <p>5</p>;
     default:
-      return(<p>error try reloading</p>);
+      return <p>error try reloading</p>;
   }
-}
-  
-  export default TabPage;
+};
+
+export default TabPage;

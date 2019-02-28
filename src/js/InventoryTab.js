@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PieGraphCard from "./GraphCards/PieGraphCard.js";
 import "../css/InventoryTab.css";
 import HbarChart from "./GraphCards/hBarChartCard.js";
-import InventorySheet from "./GraphCards/InvSpreadSheet";
+import GenericSheets from "./GraphCards/GenericSheets";
 
 const data02 = [
   { name: "Acura", Sales: 300, color: "#9E999F" },
@@ -25,7 +25,6 @@ class InventoryTab extends Component {
       data: [
         {
           id: 0,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -38,7 +37,6 @@ class InventoryTab extends Component {
         },
         {
           id: 1,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -51,7 +49,6 @@ class InventoryTab extends Component {
         },
         {
           id: 2,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -64,7 +61,6 @@ class InventoryTab extends Component {
         },
         {
           id: 3,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -77,7 +73,6 @@ class InventoryTab extends Component {
         },
         {
           id: 4,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -90,7 +85,6 @@ class InventoryTab extends Component {
         },
         {
           id: 5,
-          Photo: "(No Photos)",
           Stock: "45252236",
           Year: "15",
           Make: "Chevrolet",
@@ -105,9 +99,20 @@ class InventoryTab extends Component {
     };
   }
   handleSave(obj) {
-    let temp = this.state.data;
+    let temp = this.state.data.slice(0);
     temp[this.state.editing] = obj;
     this.setState({ data: temp, editing: null });
+  }
+  handleAdd(obj) {
+    console.log(obj);
+    console.log(this.state.data.findIndex(entry => entry.id === obj.id) !== -1);
+    if (!(this.state.data.findIndex(entry => entry.id === obj.id) !== -1)) {
+      let temp = this.state.data.slice(0);
+      temp.push(obj);
+      this.setState({ data: temp, editing: null });
+    } else {
+      alert("No Duplicate Entries");
+    }
   }
   render() {
     return (
@@ -121,7 +126,7 @@ class InventoryTab extends Component {
           <PieGraphCard data={data02} />
           <HbarChart data={data02} />
         </div>
-        <InventorySheet
+        <GenericSheets
           rows={this.state.data}
           editing={this.state.editing}
           handleSave={obj => this.handleSave(obj)}
@@ -131,6 +136,7 @@ class InventoryTab extends Component {
               data: this.state.data.filter(obj => obj.id !== num)
             })
           }
+          handleAdd={obj => this.handleAdd(obj)}
         />
       </div>
     );

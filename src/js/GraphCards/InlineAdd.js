@@ -11,8 +11,8 @@ import {
 import MenuItem from "@material-ui/core/MenuItem";
 import "../../css/EmpActivity.css";
 import { Formik, ErrorMessage } from "formik";
-import SaveBut from "../Buttons/SaveButton";
-import CancelBut from "../Buttons/CancelButton";
+import AddButton from "../Buttons/AddButton";
+import hash from "object-hash";
 import { MuiPickersUtilsProvider, DatePicker } from "material-ui-pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
@@ -106,9 +106,9 @@ var helper = function(obj, handleChange, data, setFieldValue) {
             name={obj.key}
             onChange={handleChange}
           >
-            <MenuItem value="Car Guru">Car Guru</MenuItem>
-            <MenuItem value="Walk-In">Walk-In</MenuItem>
-            <MenuItem value="Phone Call">Phone Call</MenuItem>
+            <MenuItem value="Acura">Acura</MenuItem>
+            <MenuItem value="Aston Martin">Aston Martin</MenuItem>
+            <MenuItem value="Audi">Audi</MenuItem>
           </Select>
           <ErrorMessage name={obj.key} component="div" />
         </div>
@@ -133,14 +133,21 @@ var helper = function(obj, handleChange, data, setFieldValue) {
 
 const createValues = function(array, data) {
   let temp = {};
-  temp.id = data.id;
   array.forEach(element => {
-    temp[element.key] = data[element.key];
+    if (element.type === "date") {
+      temp[element.key] = new Date();
+    } else {
+      temp[element.key] = data[element.key];
+    }
   });
   return temp;
 };
 
-class InlineForm extends React.PureComponent {
+class InlineAdd extends React.PureComponent {
+  Add(obj) {
+    let temp = { id: hash(obj), ...obj };
+    this.props.handleAdd(temp);
+  }
   render() {
     return (
       <Formik initialValues={createValues(this.props.types, this.props.row)}>
@@ -164,14 +171,7 @@ class InlineForm extends React.PureComponent {
             ))}
             <TableCell padding="none" align="right">
               <div className="buttons">
-                <SaveBut
-                  color="#4D6F7F"
-                  handleClick={() => this.props.handleSave(values)}
-                />
-                <CancelBut
-                  color="#4D6F7F"
-                  handleClick={() => this.props.handleEdit()}
-                />
+                <AddButton handleClick={() => this.Add(values)} />
               </div>
             </TableCell>
           </TableRow>
@@ -180,4 +180,4 @@ class InlineForm extends React.PureComponent {
     );
   }
 }
-export default InlineForm;
+export default InlineAdd;

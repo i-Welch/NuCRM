@@ -14,6 +14,7 @@ import "../Buttons/EditButton";
 import EditBut from "../Buttons/EditButton";
 import DelBut from "../Buttons/DeleteButton";
 import InlineForm from "./InlineForm";
+import InlineAdd from "./InlineAdd";
 
 const styles = theme => ({
   root: {
@@ -26,7 +27,7 @@ const styles = theme => ({
   }
 });
 
-class InventorySheet extends React.PureComponent {
+class LeadsSheet extends React.PureComponent {
   render() {
     return (
       <div className="cont">
@@ -37,33 +38,20 @@ class InventorySheet extends React.PureComponent {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell padding="none">Photo</TableCell>
-                <TableCell align="right" padding="dense">
-                  Stock#
+                <TableCell align="left" padding="dense">
+                  Customer
                 </TableCell>
                 <TableCell align="right" padding="dense">
-                  Year
+                  Last Contact
                 </TableCell>
                 <TableCell align="right" padding="dense">
-                  Make
+                  Status
                 </TableCell>
                 <TableCell align="right" padding="dense">
-                  Model
-                </TableCell>
-                <TableCell align="right" padding="dense">
-                  Trim
-                </TableCell>
-                <TableCell align="right" padding="dense">
-                  VIN
+                  Source
                 </TableCell>
                 <TableCell align="right" padding="dense">
                   Age
-                </TableCell>
-                <TableCell align="right" padding="dense">
-                  Web Price
-                </TableCell>
-                <TableCell align="right" padding="dense">
-                  Lot Price
                 </TableCell>
                 <TableCell />
               </TableRow>
@@ -72,35 +60,20 @@ class InventorySheet extends React.PureComponent {
               {this.props.rows.map(row =>
                 this.props.editing !== row.id ? (
                   <TableRow key={row.id}>
-                    <TableCell align="left" padding="none">
-                      {row.Photo}
+                    <TableCell align="left" padding="dense">
+                      {row.Customer}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.Stock}
+                      {row.LastContact.getDate()}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.Year}
+                      {row.Status}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.Make}
+                      {row.Source}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.Model}
-                    </TableCell>
-                    <TableCell align="right" padding="dense">
-                      {row.Trim}
-                    </TableCell>
-                    <TableCell align="right" padding="dense">
-                      {row.VIN}
-                    </TableCell>
-                    <TableCell align="right" padding="dense">
-                      {row.Age}
-                    </TableCell>
-                    <TableCell align="right" padding="dense">
-                      {row.WebPrice + " $"}
-                    </TableCell>
-                    <TableCell align="right" padding="dense">
-                      {row.LotPrice + " $"}
+                      {row.LastContact.getMinutes - new Date().getMinutes}
                     </TableCell>
                     <TableCell align="right" padding="none">
                       <div className={"buttons"}>
@@ -108,7 +81,10 @@ class InventorySheet extends React.PureComponent {
                           color={"#4D6F7F"}
                           handleClick={() => this.props.handleEdit(row.id)}
                         />
-                        <DelBut color={"#4D6F7F"} />
+                        <DelBut
+                          color={"#4D6F7F"}
+                          handleClick={() => this.props.handleDel(row.id)}
+                        />
                       </div>
                     </TableCell>
                   </TableRow>
@@ -116,22 +92,28 @@ class InventorySheet extends React.PureComponent {
                   <InlineForm
                     row={row}
                     types={[
-                      { type: "img", key: "Photo" },
-                      { type: "number", key: "Stock" },
-                      { type: "number", key: "Year" },
-                      { type: "select", key: "Make" },
-                      { type: "select", key: "Model" },
-                      { type: "str", key: "Trim" },
-                      { type: "number", key: "VIN" },
-                      { type: "number", key: "Age" },
-                      { type: "number", key: "WebPrice" },
-                      { type: "number", key: "LotPrice" }
+                      { type: "str", key: "Customer" },
+                      { type: "date", key: "LastContact" },
+                      { type: "selectStatus", key: "Status" },
+                      { type: "selectSource", key: "Source" },
+                      { type: "null", key: "null" }
                     ]}
                     handleSave={obj => this.props.handleSave(obj)}
                     handleEdit={() => this.props.handleEdit(null)}
                   />
                 )
               )}
+              <InlineAdd
+                row={this.props.rows.length}
+                types={[
+                  { type: "str", key: "Customer" },
+                  { type: "date", key: "LastContact" },
+                  { type: "selectStatus", key: "Status" },
+                  { type: "selectSource", key: "Make" },
+                  { type: "str", key: "Source" }
+                ]}
+                handleAdd={obj => this.props.handleAdd(obj)}
+              />
             </TableBody>
           </Table>
         </Paper>
@@ -139,4 +121,4 @@ class InventorySheet extends React.PureComponent {
     );
   }
 }
-export default withStyles(styles)(InventorySheet);
+export default withStyles(styles)(LeadsSheet);
