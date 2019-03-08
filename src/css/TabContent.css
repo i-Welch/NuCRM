@@ -1,0 +1,22 @@
+.tabContainer {
+  padding: 0;
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  grid-area: tabs;
+}
+
+.bookContainer {
+  display: grid;
+
+  grid-template-columns: 200px auto;
+
+  grid-template-areas: "tabs pages";
+}
+
+.bookPage {
+  border-width: 0 0 0 1px;
+  border-color: #c2c2c2;
+  border-style: solid;
+  grid-area: pages;
+}

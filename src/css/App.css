@@ -1,14 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);
 
 .App {
   background-color: #fafafa;
-  flex-direction: row;
-  font-family: 'Roboto';
-  width: 100%;
-  height: 100%;
+  flex-direction: column;
+  font-family: "Roboto";
+  width: 100vw;
+  height: 100vh;
 }
 
-*:focus{
+*:focus {
   outline: none;
 }
 
@@ -19,4 +19,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content {
+  height: auto;
 }

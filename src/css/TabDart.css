@@ -1,0 +1,58 @@
+.dataFormat {
+  padding: 2%;
+}
+
+.tabDart {
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  height: 80px;
+  border-width: 0 0 0 3px;
+  border-style: solid;
+}
+
+.tabDart.Sold {
+  border-color: #ff1111;
+}
+
+.tabDart.Lost {
+  border-color: aqua;
+}
+
+.tabDart.Negotiation {
+  border-color: #09ff00;
+}
+
+.tabDart.FollowUp {
+  border-color: #176434;
+}
+
+.tabDart.Pending {
+  border-color: #ff0062;
+}
+
+.tabDart.active {
+  background-color: #e2e2e2;
+}
+
+.dataFormat {
+  padding: 0%;
+  height: 80px;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #b1b1b1;
+}
+
+.dataFormat.active {
+  border-style: none;
+}
+
+h3 {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+/*# sourceMappingURL=TabDart.css.map */

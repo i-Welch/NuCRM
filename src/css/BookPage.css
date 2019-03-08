@@ -1,0 +1,54 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50fr 20em;
+      grid-template-columns: 50fr 20em;
+  -ms-grid-rows: 20fr 50fr 30fr;
+      grid-template-rows: 20fr 50fr 30fr;
+      grid-template-areas: "graphs graphs" "cont contact" "sales sales";
+}
+
+.graphs {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: graphs;
+}
+
+.content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: cont;
+  margin-left: 1em;
+}
+
+.contact {
+  padding: 1em;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: contact;
+  margin-right: 10%;
+}
+
+.contact div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sales {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: sales;
+}
+/*# sourceMappingURL=BookPage.css.map */

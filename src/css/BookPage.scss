@@ -1,0 +1,35 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+
+  grid-template-columns: 50fr 20em;
+  grid-template-rows: 20fr 50fr 30fr;
+
+  grid-template-areas:
+    "graphs graphs"
+    "cont contact"
+    "sales sales";
+}
+
+.graphs {
+  grid-area: graphs;
+}
+.content {
+  grid-area: cont;
+  margin-left: 1em;
+}
+.contact {
+  padding: 1em;
+  grid-area: contact;
+  margin-right: 10%;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.sales {
+  grid-area: sales;
+}

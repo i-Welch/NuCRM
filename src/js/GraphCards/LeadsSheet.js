@@ -15,6 +15,7 @@ import EditBut from "../Buttons/EditButton";
 import DelBut from "../Buttons/DeleteButton";
 import InlineForm from "./InlineForm";
 import InlineAdd from "./InlineAdd";
+import { format } from "date-fns";
 
 const styles = theme => ({
   root: {
@@ -32,9 +33,7 @@ class LeadsSheet extends React.PureComponent {
     return (
       <div className="cont">
         <Paper className="pip">
-          <div className="ti">
-            <p>Inventory</p>
-          </div>
+          <div className="ti" />
           <Table>
             <TableHead>
               <TableRow>
@@ -51,7 +50,7 @@ class LeadsSheet extends React.PureComponent {
                   Source
                 </TableCell>
                 <TableCell align="right" padding="dense">
-                  Age
+                  Year
                 </TableCell>
                 <TableCell />
               </TableRow>
@@ -64,7 +63,7 @@ class LeadsSheet extends React.PureComponent {
                       {row.Customer}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.LastContact.getDate()}
+                      {format(row.LastContact, "MM/dd/yyyy")}
                     </TableCell>
                     <TableCell align="right" padding="dense">
                       {row.Status}
@@ -73,7 +72,7 @@ class LeadsSheet extends React.PureComponent {
                       {row.Source}
                     </TableCell>
                     <TableCell align="right" padding="dense">
-                      {row.LastContact.getMinutes - new Date().getMinutes}
+                      {format(row.LastContact, "yyyy")}
                     </TableCell>
                     <TableCell align="right" padding="none">
                       <div className={"buttons"}>
