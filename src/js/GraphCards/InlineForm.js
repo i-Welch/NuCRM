@@ -56,6 +56,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
             type="email"
             name={obj.key}
             onChange={handleChange}
+            placeholder={data}
           >
             <MenuItem value="Acura">Acura</MenuItem>
             <MenuItem value="Aston Martin">Aston Martin</MenuItem>
@@ -164,13 +165,13 @@ class InlineForm extends React.PureComponent {
             ))}
             <TableCell padding="none" align="right">
               <div className="buttons">
-                <SaveBut
-                  color="#4D6F7F"
-                  handleClick={() => this.props.handleSave(values)}
-                />
                 <CancelBut
                   color="#4D6F7F"
                   handleClick={() => this.props.handleEdit()}
+                />
+                <SaveBut
+                  color="#4D6F7F"
+                  handleClick={() => this.props.handleSave(values)}
                 />
               </div>
             </TableCell>

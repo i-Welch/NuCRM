@@ -100,7 +100,7 @@ class InventoryTab extends Component {
   }
   handleSave(obj) {
     let temp = this.state.data.slice(0);
-    temp[this.state.editing] = obj;
+    temp[this.state.data.findIndex(o => o.id === obj.id)] = obj;
     this.setState({ data: temp, editing: null });
   }
   handleAdd(obj) {
