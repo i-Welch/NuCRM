@@ -17,7 +17,7 @@ export default class TabDart extends PureComponent {
           })}
           onClick={() => this.props.updActivity(this.props.id)}
         >
-          <h3>{this.props.data.Name}</h3>
+          <h3>{this.props.data.firstName + " " + this.props.data.lastName}</h3>
           <p>{this.props.data.Status}</p>
         </div>
       </div>

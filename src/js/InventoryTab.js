@@ -104,8 +104,6 @@ class InventoryTab extends Component {
     this.setState({ data: temp, editing: null });
   }
   handleAdd(obj) {
-    console.log(obj);
-    console.log(this.state.data.findIndex(entry => entry.id === obj.id) !== -1);
     if (!(this.state.data.findIndex(entry => entry.id === obj.id) !== -1)) {
       let temp = this.state.data.slice(0);
       temp.push(obj);

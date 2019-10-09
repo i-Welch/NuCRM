@@ -24,7 +24,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
           <TextField
             type="number"
             name={obj.key}
-            value={data}
+            value={data || ""}
             onChange={handleChange}
           />
           <ErrorMessage name={obj.key} component="div" />
@@ -42,7 +42,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
           <TextField
             type="text"
             name={obj.key}
-            value={data}
+            value={data || ""}
             onChange={handleChange}
           />
           <ErrorMessage name={obj.key} component="div" />
@@ -52,7 +52,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
       return (
         <div className="tFields">
           <Select
-            value={data}
+            value={data || ""}
             type="email"
             name={obj.key}
             onChange={handleChange}
@@ -69,7 +69,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
       return (
         <div className="tFields">
           <Select
-            value={data}
+            value={data || ""}
             type="email"
             name={obj.key}
             onChange={handleChange}
@@ -85,7 +85,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
       return (
         <div className="tFields">
           <Select
-            value={data}
+            value={data || ""}
             type="email"
             name={obj.key}
             onChange={handleChange}
@@ -102,7 +102,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
       return (
         <div className="tFields">
           <Select
-            value={data}
+            value={data || ""}
             type="email"
             name={obj.key}
             onChange={handleChange}
@@ -120,7 +120,7 @@ var helper = function(obj, handleChange, data, setFieldValue) {
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <DatePicker
               margin="normal"
-              value={data}
+              value={data || ""}
               name={obj.key}
               onChange={e => setFieldValue(obj.key, e)}
             />

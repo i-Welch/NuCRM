@@ -1,82 +1,80 @@
 import React, { Component } from "react";
 import TabContent from "./TabContent";
+import * as firebase from "firebase";
 import "../../css/CustomerTab.css";
+import SaveBut from "../Buttons/SaveButton";
+import { TextField } from "@material-ui/core";
 
 class CustomerTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isAdding: false,
       viewing: null,
       data: [
-        {
-          id: 0,
-          Name: "Billy John",
-          PhoneHome: "(450) 678-9292",
-          PhoneCell: "(456) 789-0123",
-          PhoneWork: "(450) 898-6754",
-          SalesRep: "Jeff",
-          Status: "Sold",
-          LastPurchase: "Honda CR-V",
-          LastContacted: new Date(2014, 1, 11),
-          Source: "DMS Sales",
-          StreetAddress: "5603 Summer Hill Drive 34578",
-          City: "Atlanta",
-          State: "GA"
-        },
-        {
-          id: 1,
-          Name: "Billy John",
-          PhoneHome: 4506789292,
-          PhoneCell: 4342342123,
-          PhoneWork: 4506826254,
-          SalesRep: "Jeff",
-          Status: "Lost",
-          LastPurchase: "Honda CR-V",
-          LastContacted: new Date(),
-          Source: "DMS Sales",
-          StreetAddress: "5603 Summer Hill Drive 34568",
-          City: "Atlanta",
-          State: "GA"
-        },
-        {
-          id: 2,
-          Name: "Billy John",
-          PhoneHome: 4503333332,
-          PhoneCell: 4567444443,
-          PhoneWork: 4508962454,
-          SalesRep: "Jeff",
-          Status: "FollowUp",
-          LastPurchase: "Honda CR-V",
-          LastContacted: new Date(),
-          Source: "DMS Sales",
-          StreetAddress: "5603 Summer Hill Drive 45678",
-          City: "Atlanta",
-          State: "GA"
-        },
-        {
-          id: 3,
-          Name: "Billy John",
-          PhoneHome: 4506789292,
-          PhoneCell: 4567890123,
-          PhoneWork: 4508986754,
-          SalesRep: "Jeff",
-          Status: "Sold",
-          LastPurchase: "Honda CR-V",
-          LastContacted: new Date(),
-          Source: "DMS Sales",
-          StreetAddress: "5603 Summer Hill Drive 34568",
-          City: "Atlanta",
-          State: "GA"
-        }
-      ]
+      ],
+      newUser: {}
     };
+
+    firebase.firestore().collection("Customer").get().then(snapshot => {
+      const users = snapshot.docs.map(doc => {
+        return doc.data();
+      });
+      this.setState({data: users});
+    });
   }
   render() {
+    const isEditing = this.state.isEditing;
     return (
       <div className="content">
-        <TabContent data={this.state.data} />
+      {
+        !isEditing ?
+        (
+          <TabContent data={this.state.data} addNewCustomer={this.addNewCustomer}/>
+        ) :
+        (
+          <div className="customerForm">
+            <div className="customerPrimaryFields">
+              <TextField
+                name="First Name"
+                onChange={(event) => this.handleChange("firstName", event)}
+              />
+            </div>
+            <div className="customerSecondaryFields">
+              <SaveBut handleClick={this.onSave}/>
+            </div>
+          </div>
+        )
+      }
       </div>
     );
+  }
+
+  addNewCustomer = () => {
+    this.setState({isEditing: true});
+  }
+
+  onSave = async () => {
+    await firebase.firestore().collection("Customer").add(this.state.newUser);
+    await this.updateStateWithCustomers();
+    this.setState({
+      newUser: {},
+      isEditing: false
+    });
+  }
+
+  handleChange = (path, event) => {
+    const updatedState = {newUser: {}};
+    updatedState["newUser"][path] = event.target.value;
+    this.setState(updatedState);
+  }
+
+  updateStateWithCustomers = async () => {
+    const snapshot = await firebase.firestore().collection("Customer").get()
+    const users = snapshot.docs.map(doc => {
+      return doc.data();
+    });
+    this.setState({data: users});
   }
 }
 

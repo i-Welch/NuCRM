@@ -20,3 +20,42 @@
   border-style: solid;
   grid-area: pages;
 }
+
+.addCustomer {
+  width: 200px;
+  padding: 0px;
+  height: 50px;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.addCustomer:hover {
+  color: rgb(114, 180, 152);
+}
+
+.customerForm {
+  background-color: #c2c2c2;
+  display: grid;
+  grid-template-columns: 70% auto;
+  grid-template-rows: 100%;
+
+  grid-template-areas: "main secondary"
+}
+
+.customerPrimaryFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: main;
+}
+
+.customerSecondaryFields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-area: secondary;
+}

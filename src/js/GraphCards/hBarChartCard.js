@@ -39,8 +39,10 @@ const HbarChart = props => (
         {props.data
           .filter((entry, index) => index < 18)
           .filter(obj => obj.Sales > 0)
-          .map(entry => (
-            <li className="info">
+          .map((entry, index) => (
+            <li className="info"
+              key={index}
+            >
               <p className="name">{entry.name}</p>
               <div
                 style={{

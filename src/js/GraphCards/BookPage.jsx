@@ -28,7 +28,7 @@ export default class BookPage extends PureComponent {
         <Paper className="contact">
           <h3>Contact Info:</h3>
           <div>
-            <Home />: {this.props.data ? this.props.data.PhoneHome : "Off"}
+            <Home />: {this.props.data ? this.props.data.phone : "Off"}
           </div>
           <div>
             <Cell />: {this.props.data ? this.props.data.PhoneCell : "Off"}
@@ -36,7 +36,7 @@ export default class BookPage extends PureComponent {
           <div>
             <Work />: {this.props.data ? this.props.data.PhoneWork : "Off"}
           </div>
-          <div>{this.props.data ? this.props.data.StreetAddress : "Off"}</div>
+          <div>{this.props.data ? this.props.data.address : "Off"}</div>
           <div>
             {this.props.data ? this.props.data.City : "Off"}
             {", "}

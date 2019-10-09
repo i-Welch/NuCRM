@@ -18,13 +18,18 @@ export default class TabContent extends Component {
           <div className="tabContainer">
             {this.props.data.map(Customer => (
               <TabDart
-                key={Customer.id}
-                id={Customer.id}
+                key={Customer.email}
+                id={Customer.email}
                 data={Customer}
-                activity={this.state.active === Customer.id}
+                activity={this.state.active === Customer.SSN}
                 updActivity={upd => this.setState({ active: upd })}
               />
             ))}
+            <div className="addCustomer"
+              onClick={() => this.props.addNewCustomer()}
+            >
+              +
+            </div>
           </div>
           <div className="bookPage">
             <BookPage
@@ -36,3 +41,4 @@ export default class TabContent extends Component {
     );
   }
 }
+
